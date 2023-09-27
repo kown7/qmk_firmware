@@ -131,11 +131,17 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
     } else if (index == 0) {
         // Page up/Page down
+        int i = get_highest_layer(layer_state|default_layer_state);
         if (clockwise) {
-            tap_code(KC_PGDN);
+	    i--;
         } else {
-            tap_code(KC_PGUP);
+            i++;
         }
+	i = i % NUM_LAYERS;
+	if (i < 0) {
+	    i = NUM_LAYERS - 1;
+	}
+	layer_move(TO(i));
     }
     return false;
 }
