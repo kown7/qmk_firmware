@@ -17,13 +17,13 @@
 
 enum layers {
     _QWERTY = 0,
-    _DVORAK,
-    _COLEMAK_DH,
     _NAV,
     _SYM,
     _FUNCTION,
     _ADJUST,
+    _EXCEL,
 };
+#define NUM_LAYERS 6
 
 
 // Aliases for readability
