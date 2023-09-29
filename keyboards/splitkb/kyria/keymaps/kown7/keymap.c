@@ -15,6 +15,7 @@
  */
 #include QMK_KEYBOARD_H
 
+
 enum layers {
     _QWERTY = 0,
     _NAV,
@@ -22,8 +23,9 @@ enum layers {
     _FUNCTION,
     _ADJUST,
     _EXCEL,
+    _EXCEL_FN,
 };
-#define NUM_LAYERS 6
+#define NUM_LAYERS 7
 
 
 // Aliases for readability
@@ -34,6 +36,7 @@ enum layers {
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
 #define EXCEL    MO(_EXCEL)
+#define EXCEL_FN MO(_EXCEL_FN)
 
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
@@ -90,6 +93,9 @@ bool oled_task_user(void) {
                 break;
             case _EXCEL:
                 oled_write_P(PSTR("Excel\n"), false);
+                break;
+            case _EXCEL_FN:
+                oled_write_P(PSTR("Excel FN\n"), false);
                 break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
