@@ -152,3 +152,52 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     return false;
 }
 #endif
+
+
+const rgblight_segment_t PROGMEM my_default_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, RGBLED_NUM, HSV_BLUE}
+    );
+
+const rgblight_segment_t PROGMEM my_nav_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, RGBLED_NUM, HSV_RED}
+    );
+
+const rgblight_segment_t PROGMEM my_symbol_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, RGBLED_NUM, HSV_GOLD}
+    );
+
+const rgblight_segment_t PROGMEM my_fn_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, RGBLED_NUM, HSV_YELLOW}
+    );
+
+const rgblight_segment_t PROGMEM my_excel_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, RGBLED_NUM, HSV_GREEN}
+    );
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_default_layer,
+    my_nav_layer,
+    my_symbol_layer,
+    my_fn_layer,
+    my_default_layer,
+    my_excel_layer,
+    my_excel_layer
+    );
+
+void keyboard_post_init_user(void) {
+    rgblight_layers = my_rgb_layers;
+}
+
+
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _QWERTY));
+    return state;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    for(layer_state_t j = 0; j < NUM_LAYERS; j++) {
+	rgblight_set_layer_state(j, layer_state_cmp(state, j));
+    }
+    return state;
+}

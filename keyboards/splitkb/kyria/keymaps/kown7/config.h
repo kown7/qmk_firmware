@@ -16,6 +16,12 @@
 
 #pragma once
 
+// from: https://docs.qmk.fm/#/feature_rgblight?id=retain-brightness
+#define RGBLIGHT_LAYERS_RETAIN_VAL
+// from: https://docs.qmk.fm/#/feature_rgblight?id=lighting-layers
+#define RGBLIGHT_LAYERS
+
+
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_BREATHING
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD
