@@ -21,6 +21,9 @@
 // from: https://docs.qmk.fm/#/feature_rgblight?id=lighting-layers
 #define RGBLIGHT_LAYERS
 
+// https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#permissive-hold
+#define PERMISSIVE_HOLD
+
 
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_BREATHING
