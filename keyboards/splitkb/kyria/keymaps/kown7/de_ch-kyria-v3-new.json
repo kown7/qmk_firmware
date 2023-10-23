@@ -56,7 +56,7 @@
       "KC_SPC",
       "KC_RSFT",
       "KC_RALT",
-      "LALT(KC_APP)"
+      "LALT_T(KC_APP)"
     ],
     [
       "KC_ESC",
